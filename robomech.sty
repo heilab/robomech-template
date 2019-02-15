@@ -1,15 +1,15 @@
 %
-%        $B%m%\%F%#%/%9!&%a%+%H%m%K%/%99V1i2q(B $B%9%?%$%k%U%!%$%k(B
-%                                 ($B%m%\%C%H3X2q$NM=9F=8$N%d%D$r;29M(B)
+%        ロボティクス・メカトロニクス講演会 スタイルファイル
+%                                 (ロボット学会の予稿集のヤツを参考)
 %               Ver. 1.0          by E.Uchibe
 %               Ver. 2.0          by ROBOMECH2014 executive committee
 %
-% $B$3$N%9%?%$%k%U%!%$%k$N5!G=(B:
-% $B!{(B $B5!3#3X2q9V1iMQ%9%?%$%k%U%!%$%k$NMM<0$KD4@0$7$F$$$k(B
-% $B!{(B figure$B!$(Btable $B$N%-%c%W%7%g%sJQ99!$J#?t9T$K$^$?$,$k>l9g$K$bE,Ev$K(B
-%    $B%$%s%G%s%H$7$F$/$l$k!%(B
-% $B!{(B maketitle $B$NJQ99!%(Btitle, author, affiliation, mauthor $B$r@_Dj$9$k!%(B
-%    ($B86(B@$BEEAm8&$5$s(B)
+% このスタイルファイルの機能:
+% ○ 機械学会講演用スタイルファイルの様式に調整している
+% ○ figure，table のキャプション変更，複数行にまたがる場合にも適当に
+%    インデントしてくれる．
+% ○ maketitle の変更．title, author, affiliation, mauthor を設定する．
+%    (原@電総研さん)
 %
 % See also.
 %   http://www.robotics.is.tohoku.ac.jp/robomec98/faq.html#q1
@@ -21,13 +21,13 @@
 \flushbottom
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       $B%5%$%:$N@_Dj(B
+%       サイズの設定
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textheight     247mm %           % 297mm - 25mm(head) - 25mm(bottom)
 \textwidth      180mm %           % 210mm - 15mm(left) - 15mm(right)
 
-\topmargin      -0.4mm            % 25mm(head) 
+\topmargin      -0.4mm            % 25mm(head)
 \headheight     0mm
 \headsep        0mm
 
@@ -36,7 +36,7 @@
 \columnsep      6mm
 \parindent      1zw
 
-% $B9T4V$N@_Dj(B
+% 行間の設定
 \setlength{\baselineskip}{4.2mm}
 %\renewcommand{\baselinestretch}{1.0}
 \renewcommand{\baselinestretch}{0.93}
@@ -55,55 +55,55 @@
 \belowcaptionskip	-3pt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Citation  $BJ8Cf$N0zMQHV9f$r$+$C$3$J$7$H$9$k!%(B
+% Citation  文中の引用番号をかっこなしとする．
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\renewcommand{\@cite}[2]{{#1\if@tempswa , #2\fi}}
-%       $BJ88%0zMQHV9f$r8*$K>h$;$k!%(B
+%       文献引用番号を肩に乗せる．
 %\def\@cite#1#2{$^{\mbox{\scriptsize {#1\if@tempswa , #2\fi})}}$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% figure, table caption $B$r(B2$B9T0J>e=hM}$9$k$?$a$K(B
-% caption $B$N=PNO7A<0$bJQ$($k!%(B
+% figure, table caption を2行以上処理するために
+% caption の出力形式も変える．
 %
-% \@makecaption{NUMBER}{TEXT} : Macro to make a figure or table caption.  
-%      NUMBER : Figure or table number--e.g., 'Figure 3.2' 
+% \@makecaption{NUMBER}{TEXT} : Macro to make a figure or table caption.
+%      NUMBER : Figure or table number--e.g., 'Figure 3.2'
 %      TEXT   : The caption text.
 %  Macro should be called inside a \parbox of right width, with \normalsize.
 % changed 25 Jun 86 to fix according to Howard Trickey:
 % instead of \unhbox\@tempboxa\par we do #1: #2\par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \long\def\@makecaption#1#2{
-   \vskip 10pt 
+   \vskip 10pt
    \setbox\@tempboxa\hbox{#1 #2}
    \ifdim \wd\@tempboxa >\hsize   % IF longer than one line:
        \@hangfrom{#1 }#2\par %\ignorespaces #2\strut \par %chaged on 89-09-07
        %#1 #2\par                 %   THEN set as ordinary paragraph.
      \else                        %   ELSE  center.
-       \hbox to\hsize{\hfil\box\@tempboxa\hfil}  
+       \hbox to\hsize{\hfil\box\@tempboxa\hfil}
    \fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%       Fig. $B4D6-$N(B caption $B$r(B " {\bf Fig. ?} " $B$KJQ$($k(B
+%       Fig. 環境の caption を " {\bf Fig. ?} " に変える
 
 %\long\def\@makecaption#1#2{
-% \vskip 10pt 
+% \vskip 10pt
 % \setbox\@tempboxa\hbox{#1 #2}
 % \ifdim \wd\@tempboxa >\hsize \unhbox\@tempboxa\par \else \hbox
-%to\hsize{\hfil\box\@tempboxa\hfil} 
+%to\hsize{\hfil\box\@tempboxa\hfil}
 % \fi}
 \def\fnum@figure{{\bf Fig.\thefigure}}
 
-%       Table $B4D6-$N(B caption $B$r(B `` {\bf Table ?}'' $B$KJQ$($k(B
+%       Table 環境の caption を `` {\bf Table ?}'' に変える
 \def\fnum@table{{\bf Table \thetable}}
 
-\def\reffig#1{{$B?^(B }\ref{#1}}
-\def\reftab#1{{$BI=(B }\ref{#1}}
-\def\refeqn#1{{$B<0(B }(\ref{#1})}
+\def\reffig#1{{図 }\ref{#1}}
+\def\reftab#1{{表 }\ref{#1}}
+\def\refeqn#1{{式 }(\ref{#1})}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% $B>OBj$ND4@0(B
+% 章題の調整
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\section{\@startsection {section}{1}{\z@}{0.8zh plus 0.2zh minus
@@ -116,8 +116,8 @@
 \def\subparagraph{\@startsection{subparagraph}{4}{\parindent}{0zh}{0zh}{\small\bf}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% $B$3$3$+$i86(B@$BEEAm8&(B(hara@etl.go.jp)$B$5$s$N%9%?%$%k$N%Q%/%j(B
-% title, author, affiliation, mauthor $B$J$I$N@_Dj$,2DG=!%(B
+% ここから原@電総研(hara@etl.go.jp)さんのスタイルのパクリ
+% title, author, affiliation, mauthor などの設定が可能．
 %
 %  Fonts define
 %
@@ -128,12 +128,12 @@
 
 \gdef\@titlefont{\Large\bf}
 \gdef\@subtitlefont{\large\bf}
-\gdef\@etitlefont{\large}    % $B1Q8l$N%?%$%H%k$N%U%)%s%H(B
-\gdef\@esubtitlefont{\normalsize}    % $B1Q8l$N%?%$%H%k$N%U%)%s%H(B
+\gdef\@etitlefont{\large}    % 英語のタイトルのフォント
+\gdef\@esubtitlefont{\normalsize}    % 英語のタイトルのフォント
 \gdef\@authorfont{\normalsize}
 \gdef\@affiliationfont{\normalsize}
-\gdef\@eauthorfont{\small} % $B1Q8l$NCx<TL>$N%U%)%s%H(B
-\gdef\@eaffiliationfont{\small} % $B1Q8l$N=jB0$N%U%)%s%H(B
+\gdef\@eauthorfont{\small} % 英語の著者名のフォント
+\gdef\@eaffiliationfont{\small} % 英語の所属のフォント
 
 \def\abst#1{\gdef\@abst{#1}}
 \def\title#1#2#3#4{\gdef\@title{#1} \gdef\@subtitle{#2} \gdef\@etitle{#3} \gdef\@esubtitle{#4}}
@@ -271,52 +271,52 @@ $^{%
 }
 
 %
-%  \maketitle 
+%  \maketitle
 %       request \MagTitle{}, \title{}{}, \author{}{}, \affiliation{}{}
 %
 
 \def\maketitle{\par
  \begingroup
 \def\thefootnote{\fnsymbol{footnote}}
-\def\@makefnmark{\hbox 
- to 0pt{$^{\@thefnmark}$\hss}} 
- \if@twocolumn 
- \twocolumn[\@maketitle] 
+\def\@makefnmark{\hbox
+ to 0pt{$^{\@thefnmark}$\hss}}
+ \if@twocolumn
+ \twocolumn[\@maketitle]
  \else \newpage
  \global\@topnum\z@ \@maketitle \fi\@thanks
  \endgroup
  \setcounter{footnote}{0}
  \let\maketitle\relax\let\@maketitle\relax
- \gdef\@etitle{}\let\thanks\relax} 
+ \gdef\@etitle{}\let\thanks\relax}
 
 \def\@maketitle{\newpage
  \null
 
-% $BF|K\8l!$1Q8l$N%?%$%H%k$NI=<((B %%%%%%%%%%%%%%%%%%%
+% 日本語，英語のタイトルの表示 %%%%%%%%%%%%%%%%%%%
 
  \begin{center}
   \vskip -2zh%
- {\@titlefont \@title \par}     % $BF|K\8l$N%?%$%H%k(B
- {\@subtitlefont \@subtitle \par}     % $BF|K\8l$N%?%$%H%k(B
+ {\@titlefont \@title \par}     % 日本語のタイトル
+ {\@subtitlefont \@subtitle \par}     % 日本語のタイトル
 
  \vskip 1.0zh
- {\@etitlefont \@etitle \par}        % $B1Q8l$N%?%$%H%k(B
- {\@esubtitlefont \@esubtitle}        % $B1Q8l$N%?%$%H%k(B
+ {\@etitlefont \@etitle \par}        % 英語のタイトル
+ {\@esubtitlefont \@esubtitle}        % 英語のタイトル
 
-% $BF|K\8l!$1Q8l$NCx<TL>$NI=<((B %%%%%%%%%%%%%%%%%%%
+% 日本語，英語の著者名の表示 %%%%%%%%%%%%%%%%%%%
  \null
- \vskip 0.5zh 
+ \vskip 0.5zh
  \begin{center} %flushleft}
    {%\lineskip .5em
      \begin{tabular}[t]{l}
-       \@author 
+       \@author
        \par
        \@date
      \end{tabular} \par
      }
  \end{center} %flushleft}
 
-% $BF|K\8l!$1Q8l$N=jB0$NI=<((B %%%%%%%%%%%%%%%%%%%
+% 日本語，英語の所属の表示 %%%%%%%%%%%%%%%%%%%
 
 \ifx\@organization\empty%
 \else%
@@ -347,7 +347,7 @@ $^{%
  %\vskip 1.3em
  }
 
-%       abst$B$@$1$r(B1$BCJAH$G=PNO$9$k(B
+%       abstだけを1段組で出力する
 \def\abstract#1{\long\def\@abstract{#1}}
 \def\@abstract{}
 
