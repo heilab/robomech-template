@@ -29,7 +29,8 @@ setup.log
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -253,3 +254,7 @@ sympy-plots-for-*.tex/
 
 *.bb
 *.xbb
+
+# JSK template
+*.orig
+main.pdf
